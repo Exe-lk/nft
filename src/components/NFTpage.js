@@ -184,7 +184,7 @@ export default function NFTPage(props) {
       <div className="flex ml-20 mt-20">
         {dataFetched && data ? (
           data.image ? (
-            <img src={data.image} alt={data.name} />
+            <img src={data.image} alt={data.name} width="500" height="230" />
           ) : (
             <p>NFT not found or deleted.</p>
           )
@@ -220,18 +220,21 @@ export default function NFTPage(props) {
                         placeholder="New Price"
                         onChange={(e) => setNewPrice(e.target.value)}
                       />
-                      <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm"
-                        onClick={() => updateNFTPrice(tokenId, newPrice)}
-                      >
-                        Update Price
-                      </button>
-                      <button
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm"
-                        onClick={() => deleteNFT(tokenId)}
-                      >
-                        Delete NFT
-                      </button>
+                      <div className="flex space-x-2 mt-2">
+                        {" "}
+                        <button
+                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm"
+                          onClick={() => updateNFTPrice(tokenId, newPrice)}
+                        >
+                          Update Price
+                        </button>
+                        <button
+                          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded text-sm"
+                          onClick={() => deleteNFT(tokenId)}
+                        >
+                          Delete NFT
+                        </button>
+                      </div>
                     </>
                   ) : data.currentlyListed ? (
                     <button
@@ -241,7 +244,7 @@ export default function NFTPage(props) {
                       Buy for {data.price} ETH
                     </button>
                   ) : (
-                    <div className="text-gray-500">Not for sale</div>
+                    <div className="text-red-500">Not for sale</div>
                   )
                 ) : (
                   <p>Loading...</p>
