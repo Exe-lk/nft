@@ -179,7 +179,7 @@ export default function NFTPage(props) {
   }
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "#0B2E33" }}>
       <Navbar />
       <div className="flex ml-20 mt-20">
         {dataFetched && data ? (
