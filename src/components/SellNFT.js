@@ -116,7 +116,11 @@ export default function SellNFT() {
         text: "Successfully listed your NFT!",
         icon: "success",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
+        }
       });
+      
 
       enableButton();
       updateMessage("");
@@ -128,13 +132,16 @@ export default function SellNFT() {
         text: "Upload error: " + e.toString(),
         icon: "error",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
+        }
       });
     }
   }
 
   console.log("Working", process.env);
   return (
-    <div className="bg-[#0B2E33] min-h-screen">
+    <div className="bg-[#0B2E33]">
       <Navbar></Navbar>
       <div className="flex flex-col place-items-center mt-10" id="nftForm">
         <form className="bg-[#93B1B5] shadow-md rounded px-8 pt-4 pb-8 mb-4">

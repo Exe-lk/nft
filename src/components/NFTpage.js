@@ -62,7 +62,7 @@ export default function NFTPage(props) {
         image: meta.image,
         name: meta.name,
         description: meta.description,
-        currentlyListed: listedToken.currentlyListed, // ✅ Store this
+        currentlyListed: listedToken.currentlyListed,
       };
 
       updateData(item);
@@ -91,12 +91,21 @@ export default function NFTPage(props) {
       });
       await transaction.wait();
 
+      // Swal.fire({
+      //   title: "Success!",
+      //   text: "You successfully bought the NFT!",
+      //   icon: "success",
+      //   confirmButtonText: "OK",
+      // });
       Swal.fire({
         title: "Success!",
         text: "You successfully bought the NFT!",
         icon: "success",
         confirmButtonText: "OK",
-      });
+        customClass: {
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
+        }
+      });      
       updateMessage("");
     } catch (e) {
       Swal.fire({
@@ -104,6 +113,9 @@ export default function NFTPage(props) {
         text: e.toString(),
         icon: "error",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
+        }
       });
     }
   }
@@ -127,10 +139,14 @@ export default function NFTPage(props) {
 
       Swal.fire({
         title: "Success!",
-        text: "NFT price updated successfully!",
+        text: "Successfully listed your NFT!",
         icon: "success",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
+        }
       });
+      
       getNFTData(tokenId);
     } catch (e) {
       Swal.fire({
@@ -138,6 +154,9 @@ export default function NFTPage(props) {
         text: "Error updating price: " + e.toString(),
         icon: "error",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
+        }
       });
       console.error(e);
     }
@@ -162,6 +181,9 @@ export default function NFTPage(props) {
         text: "NFT deleted successfully!",
         icon: "success",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "btn btn-dark text-white"
+        }
       });
 
       updateData({});
@@ -173,6 +195,9 @@ export default function NFTPage(props) {
         text: "Error deleting NFT: " + e.message,
         icon: "error",
         confirmButtonText: "OK",
+        customClass: {
+          confirmButton: "btn btn-dark text-white"
+        }
       });
       console.error("Error:", e);
     }
