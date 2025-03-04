@@ -91,12 +91,6 @@ export default function NFTPage(props) {
       });
       await transaction.wait();
 
-      // Swal.fire({
-      //   title: "Success!",
-      //   text: "You successfully bought the NFT!",
-      //   icon: "success",
-      //   confirmButtonText: "OK",
-      // });
       Swal.fire({
         title: "Success!",
         text: "You successfully bought the NFT!",
@@ -182,7 +176,7 @@ export default function NFTPage(props) {
         icon: "success",
         confirmButtonText: "OK",
         customClass: {
-          confirmButton: "btn btn-dark text-white"
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
         }
       });
 
@@ -196,7 +190,7 @@ export default function NFTPage(props) {
         icon: "error",
         confirmButtonText: "OK",
         customClass: {
-          confirmButton: "btn btn-dark text-white"
+          confirmButton: "bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800"
         }
       });
       console.error("Error:", e);
